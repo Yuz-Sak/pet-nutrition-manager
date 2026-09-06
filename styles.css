@@ -488,6 +488,14 @@ details > summary { cursor: pointer; font-weight: 700; }
 .extra-row .row-bottom { grid-template-columns: 1fr 100px 1fr; }
 .pet-line label { display: flex; align-items: center; gap: 8px; }
 .pet-meal-weight-input { max-width: 100px; }
+.category-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 10px 0; }
+.category-tab { border: 1px solid var(--line); border-radius: 10px; background: #fff; padding: 9px 6px; color: var(--muted); cursor: pointer; }
+.category-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.balance-sheet-row { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .82rem; }
+.balance-sheet-row strong { font-weight: 600; }
+.balance-sheet-row em { min-width: 48px; text-align: right; font-style: normal; font-weight: 800; }
+.balance-lack { color: #c46a43; background: rgba(255, 177, 90, .12); }
+.balance-ok { color: var(--green); }
 
 @media (max-width: 420px) {
   .settings-grid { grid-template-columns: 1fr; }
