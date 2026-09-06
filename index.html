@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ff8a5c" />
+    <title>ペット栄養マネージャー</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-row">
+          <div>
+            <p class="eyebrow">iPhone / Web app</p>
+            <h1>ペット栄養マネージャー</h1>
+          </div>
+          <nav class="nav-tabs" aria-label="画面切替">
+            <button type="button" class="nav-button active" data-screen="home">ペット設定</button>
+            <button type="button" class="nav-button" data-screen="ingredient">食材追加</button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="content">
+        <section id="homeScreen" class="screen active">
+          <div class="panel">
+            <div class="panel-header">
+              <h2>ペット設定</h2>
+              <button id="addPetBtn" class="secondary-button" type="button">犬を追加</button>
+            </div>
+
+            <div class="field-row two-col">
+              <label>
+                <span>何日分</span>
+                <input id="recipeDays" type="number" min="1" step="1" value="7" />
+              </label>
+              <label>
+                <span>1日あたりの目安</span>
+                <div class="target-box" id="dailyTargetCard">0 kcal/日</div>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>
+                <span>メモ</span>
+                <textarea id="recipeNote" rows="3" placeholder="例: 皮膚の調子を見て、魚を少し増やす"></textarea>
+              </label>
+            </div>
+
+            <div id="petList" class="pet-list"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h2>履歴</h2>
+            </div>
+            <div id="historyList" class="history-list"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h2>直近の栄養バランス</h2>
+            </div>
+            <canvas id="nutritionChart" width="320" height="180"></canvas>
+          </div>
+        </section>
+
+        <section id="ingredientScreen" class="screen">
+          <div class="panel">
+            <div class="panel-header">
+              <h2>食材を追加</h2>
+              <button id="goHomeBtn" class="secondary-button" type="button">設定へ戻る</button>
+            </div>
+
+            <div class="search-row">
+              <input id="ingredientSearch" list="ingredientOptions" placeholder="食材を検索して追加" />
+              <button id="addSelectedIngredientBtn" class="primary-button" type="button">追加</button>
+              <datalist id="ingredientOptions"></datalist>
+            </div>
+
+            <div id="ingredientList" class="ingredient-list"></div>
+          </div>
+
+          <div class="panel summary-panel">
+            <div class="panel-header">
+              <h2>栄養バランス</h2>
+              <button id="saveHistory" class="secondary-button" type="button">履歴保存</button>
+            </div>
+
+            <div class="stats-grid">
+              <article class="stat-card accent">
+                <span>総カロリー</span>
+                <strong id="totalKcal">0 kcal</strong>
+              </article>
+              <article class="stat-card">
+                <span>たんぱく質</span>
+                <strong id="totalProtein">0 g</strong>
+              </article>
+              <article class="stat-card">
+                <span>脂質</span>
+                <strong id="totalFat">0 g</strong>
+              </article>
+              <article class="stat-card">
+                <span>炭水化物</span>
+                <strong id="totalCarbs">0 g</strong>
+              </article>
+              <article class="stat-card">
+                <span>食物繊維</span>
+                <strong id="totalFiber">0 g</strong>
+              </article>
+              <article class="stat-card">
+                <span>リン</span>
+                <strong id="totalPhosphorus">0 mg</strong>
+              </article>
+              <article class="stat-card">
+                <span>カリウム</span>
+                <strong id="totalPotassium">0 mg</strong>
+              </article>
+              <article class="stat-card">
+                <span>総重量</span>
+                <strong id="totalWeight">0 g</strong>
+              </article>
+            </div>
+
+            <div class="daily-summary">
+              <div class="summary-row">
+                <span>1日あたり</span>
+                <strong id="dailyKcal">0 kcal</strong>
+              </div>
+              <div class="summary-row">
+                <span>たんぱく質/日</span>
+                <strong id="dailyProtein">0 g</strong>
+              </div>
+              <div class="summary-row">
+                <span>食物繊維/日</span>
+                <strong id="dailyFiber">0 g</strong>
+              </div>
+              <div class="summary-row">
+                <span>リン/日</span>
+                <strong id="dailyPhosphorus">0 mg</strong>
+              </div>
+              <div class="summary-row">
+                <span>カリウム/日</span>
+                <strong id="dailyPotassium">0 mg</strong>
+              </div>
+            </div>
+
+            <div class="balance-box">
+              <h3>バランス目安</h3>
+              <ul id="balanceList" class="balance-list"></ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

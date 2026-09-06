@@ -1,0 +1,10 @@
+{
+  "name": "ペット栄養マネージャー",
+  "short_name": "PetNutrition",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff5f0",
+  "theme_color": "#ff8a5c",
+  "description": "食材の重量や個数からペットの栄養バランスを確認して、何日分かまとめて作るためのアプリです。",
+  "icons": []
+}
